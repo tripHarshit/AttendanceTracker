@@ -61,6 +61,8 @@ dependencies {
     implementation(libs.androidx.material3)
     implementation(libs.androidx.navigation.runtime.ktx)
     implementation(libs.androidx.navigation.compose)
+    implementation(libs.play.services.mlkit.face.detection)
+    implementation(libs.vision.common)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
@@ -68,4 +70,11 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+    implementation("com.google.mlkit:face-detection:16.1.5")
+    implementation("com.google.mlkit:face-detection:16.1.5")
+    implementation("androidx.exifinterface:exifinterface:1.3.6")
+    dependencies {
+        implementation("org.opencv:opencv-android:4.5.1")
+    }
+
 }

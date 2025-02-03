@@ -27,20 +27,15 @@ fun LoginScreen(navController: NavController) {
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
-        Text(
-            text = "Welcome Back!",
-            style = MaterialTheme.typography.headlineMedium,
-            fontWeight = FontWeight.Bold
-        )
+        Text(text = "Welcome Back!", style = MaterialTheme.typography.headlineMedium, fontWeight = FontWeight.Bold)
         Spacer(modifier = Modifier.height(16.dp))
-        OutlinedTextField(
-            value = email,
+        OutlinedTextField(value = email,
             onValueChange = { email = it },
-            label = { Text("Email") },
+            label = { Text("Email")},
             singleLine = true,
             shape = RoundedCornerShape(12.dp),
             modifier = Modifier.fillMaxWidth()
-                .padding(start = 16.dp, end = 16.dp)
+                .padding(start = 16.dp,end = 16.dp)
         )
         Spacer(modifier = Modifier.height(8.dp))
         OutlinedTextField(
@@ -50,28 +45,23 @@ fun LoginScreen(navController: NavController) {
             singleLine = true,
             shape = RoundedCornerShape(12.dp),
             modifier = Modifier.fillMaxWidth()
-                .padding(bottom = 16.dp, start = 16.dp, end = 16.dp),
+                .padding(bottom = 16.dp, start = 16.dp,end = 16.dp),
             visualTransformation = if (passwordVisible) VisualTransformation.None else PasswordVisualTransformation()
         )
-
         Spacer(modifier = Modifier.height(16.dp))
-        Button(
-            onClick = { /* Handle login logic */ },
+        Button(onClick = { /* Handle login logic */ },
             modifier = Modifier.fillMaxWidth()
                 .padding(start = 50.dp, end = 50.dp),
-            shape = RoundedCornerShape(12.dp)
-        ) {
-            Text(
-                text = "Login",
-                modifier = Modifier.padding(vertical = 6.dp)
-            )
+            shape = RoundedCornerShape(12.dp)) {
+            Text(text = "Login",
+                modifier = Modifier.padding(vertical = 6.dp))
         }
         Spacer(modifier = Modifier.height(8.dp))
         TextButton(onClick = { navController.navigate("signup") }) {
             Text(text = "Don't have an account? Sign Up")
         }
-    }
 
+    }
 }
 
 @Preview(showBackground = true)
