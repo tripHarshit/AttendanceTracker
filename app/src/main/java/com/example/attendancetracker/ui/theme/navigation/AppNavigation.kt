@@ -1,5 +1,6 @@
 package com.example.attendancetracker.ui.theme.navigation
 
+import FaceDetectionScreen
 import SplashScreen
 import StudentHomeScreen
 import androidx.compose.runtime.Composable
@@ -15,6 +16,7 @@ enum class CommonAppScreens(){
     BaseScreen,
     LoginScreen,
     SignUpScreen,
+    FaceDetectionScreen,
     ProfileScreen,
     SettingsScreen
 }
@@ -44,6 +46,10 @@ fun AppNavigation() {
         }
         composable(route  = FacultyScreens.HomeScreen.name){
             FacultyHomeScreen(navController = navController)
+        }
+        composable(route = CommonAppScreens.FaceDetectionScreen.name){
+            FaceDetectionScreen(navController = navController)
+
         }
     }
 }

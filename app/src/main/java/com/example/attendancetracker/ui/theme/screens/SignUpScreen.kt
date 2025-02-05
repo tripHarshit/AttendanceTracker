@@ -66,7 +66,7 @@ fun SignUpScreen(navController: NavController) {
 
         if(role == "Student") {
             Spacer(modifier = Modifier.height(8.dp))
-            OutlinedTextField(value = regNo, onValueChange = { password = it }, label = { Text("Reg No.") },
+            OutlinedTextField(value = regNo, onValueChange = { regNo = it }, label = { Text("Reg No.") },
                 singleLine = true,
                 shape = RoundedCornerShape(12.dp),
                 keyboardActions = KeyboardActions(

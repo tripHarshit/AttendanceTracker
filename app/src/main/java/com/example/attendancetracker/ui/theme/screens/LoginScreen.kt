@@ -14,6 +14,7 @@ import androidx.compose.ui.unit.dp
 import androidx.core.graphics.drawable.RoundedBitmapDrawable
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.attendancetracker.ui.theme.navigation.CommonAppScreens
 
 @Composable
 fun LoginScreen(navController: NavController) {
@@ -57,7 +58,7 @@ fun LoginScreen(navController: NavController) {
                 modifier = Modifier.padding(vertical = 6.dp))
         }
         Spacer(modifier = Modifier.height(8.dp))
-        TextButton(onClick = { navController.navigate("signup") }) {
+        TextButton(onClick = { navController.navigate(CommonAppScreens.SignUpScreen.name) }) {
             Text(text = "Don't have an account? Sign Up")
         }
 

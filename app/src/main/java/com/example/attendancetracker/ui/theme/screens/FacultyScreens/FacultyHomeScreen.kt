@@ -17,6 +17,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.attendancetracker.R
+import com.example.attendancetracker.ui.theme.navigation.CommonAppScreens
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -27,7 +28,7 @@ fun FacultyHomeScreen(navController: NavController) {
         },
         floatingActionButton = {
             FloatingActionButton(
-                onClick = { navController.navigate("takeAttendance") },
+                onClick = { navController.navigate(CommonAppScreens.FaceDetectionScreen.name) },
                 containerColor = MaterialTheme.colorScheme.primary
             ) {
                 Icon(painterResource(id = R.drawable.baseline_camera_alt_24), contentDescription = "Take Attendance")

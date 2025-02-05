@@ -75,6 +75,16 @@ dependencies {
     implementation("androidx.exifinterface:exifinterface:1.3.6")
     dependencies {
      //   implementation("org.opencv:opencv-android:4.5.1")
+        implementation("org.tensorflow:tensorflow-lite:2.9.0")
+
+        // TensorFlow Lite Task Vision (for optimized image processing)
+        implementation("org.tensorflow:tensorflow-lite-task-vision:2.9.0")
+
+        // TensorFlow Lite GPU Delegate (for hardware acceleration)
+        implementation("org.tensorflow:tensorflow-lite-gpu:2.9.0")
+
+        // OpenCV for image preprocessing (optional, but useful)
+        implementation("org.opencv:opencv-android:4.5.1")
     }
 
 }

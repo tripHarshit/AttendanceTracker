@@ -27,7 +27,7 @@ fun FaceDetectionScreen(navController: NavController) {
     Column(modifier = Modifier.fillMaxSize().
     padding(32.dp),
         horizontalAlignment = androidx.compose.ui.Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Bottom) {
+        verticalArrangement = Arrangement.Center) {
         imageBitmap?.let { bitmap ->
             Image(bitmap = bitmap.asImageBitmap(), contentDescription = "Captured Face", modifier = Modifier.fillMaxSize())
             FaceDetectionProcess(bitmap)
