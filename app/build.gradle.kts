@@ -74,7 +74,7 @@ dependencies {
     implementation("com.google.mlkit:face-detection:16.1.5")
     implementation("androidx.exifinterface:exifinterface:1.3.6")
     dependencies {
-        implementation("org.opencv:opencv-android:4.5.1")
+     //   implementation("org.opencv:opencv-android:4.5.1")
     }
 
 }

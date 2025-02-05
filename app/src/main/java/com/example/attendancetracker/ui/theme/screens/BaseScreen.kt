@@ -17,13 +17,14 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.attendancetracker.R
+import com.example.attendancetracker.ui.theme.navigation.CommonAppScreens
 import kotlinx.coroutines.delay
 
 @Composable
 fun SplashScreen(navController: NavController) {
     LaunchedEffect(Unit) {
         delay(2000)
-        navController.navigate("login")
+        navController.navigate(CommonAppScreens.LoginScreen.name)
     }
     Box(
         modifier = Modifier.fillMaxSize().background(Color.White),

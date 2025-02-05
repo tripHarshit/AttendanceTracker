@@ -20,11 +20,6 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        if (!OpenCVLoader.initDebug()) {
-            println("OpenCV Initialization Failed!")
-        } else {
-            println("OpenCV Initialized Successfully!")
-        }
         setContent {
             AttendanceTrackerTheme {
                    FaceDetectionScreen(navController = rememberNavController())

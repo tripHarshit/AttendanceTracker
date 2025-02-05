@@ -15,6 +15,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.attendancetracker.ui.theme.navigation.CommonAppScreens
+import com.example.attendancetracker.ui.theme.navigation.FacultyScreens
+import com.example.attendancetracker.ui.theme.navigation.StudentScreens
 
 @Composable
 fun SignUpScreen(navController: NavController) {
@@ -22,10 +25,13 @@ fun SignUpScreen(navController: NavController) {
     var name by remember { mutableStateOf("") }
     var email by remember { mutableStateOf("") }
     var password by remember { mutableStateOf("") }
+    var regNo by remember { mutableStateOf("") }
     var role by remember { mutableStateOf("Student") }
 
     Column(
-        modifier = Modifier.fillMaxSize().padding(16.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.Center
     ) {
@@ -40,8 +46,9 @@ fun SignUpScreen(navController: NavController) {
                     keyboardController?.hide()
                 }
             ),
-            modifier = Modifier.fillMaxWidth()
-                .padding(start = 16.dp,end = 16.dp))
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp))
         Spacer(modifier = Modifier.height(8.dp))
         OutlinedTextField(value = email, onValueChange = { email = it }, label = { Text("Email")},
             singleLine = true,
@@ -51,8 +58,26 @@ fun SignUpScreen(navController: NavController) {
                     keyboardController?.hide()
                 }
             ),
-            modifier = Modifier.fillMaxWidth()
-                .padding( start = 16.dp,end = 16.dp),)
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(start = 16.dp, end = 16.dp),)
+
+        //EXTRA STUDENT SPECIFIC FIELD ADDED
+
+        if(role == "Student") {
+            Spacer(modifier = Modifier.height(8.dp))
+            OutlinedTextField(value = regNo, onValueChange = { password = it }, label = { Text("Reg No.") },
+                singleLine = true,
+                shape = RoundedCornerShape(12.dp),
+                keyboardActions = KeyboardActions(
+                    onDone = {
+                        keyboardController?.hide()
+                    }
+                ),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding( start = 16.dp, end = 16.dp))
+        }
         Spacer(modifier = Modifier.height(8.dp))
         OutlinedTextField(value = password, onValueChange = { password = it }, label = { Text("Password") },
             singleLine = true,
@@ -62,8 +87,9 @@ fun SignUpScreen(navController: NavController) {
                     keyboardController?.hide()
                 }
             ),
-            modifier = Modifier.fillMaxWidth()
-                .padding(bottom = 16.dp, start = 16.dp,end = 16.dp))
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(bottom = 16.dp, start = 16.dp, end = 16.dp))
 
         Spacer(modifier = Modifier.height(16.dp))
 
@@ -91,17 +117,23 @@ fun SignUpScreen(navController: NavController) {
         }
 
         Spacer(modifier = Modifier.height(16.dp))
-        Button(onClick = { /* Handle sign-up logic */ },
-            modifier = Modifier.fillMaxWidth()
+        Button(onClick = {
+            if (role == "Student") {
+                navController.navigate(StudentScreens.HomeScreen.name)
+            } else if (role == "Faculty") {
+                navController.navigate(FacultyScreens.HomeScreen.name)
+            }
+        },
+            modifier = Modifier
+                .fillMaxWidth()
                 .padding(start = 50.dp, end = 50.dp),
             shape = RoundedCornerShape(12.dp)) {
             Text(text = "Sign Up",
                 modifier = Modifier.padding(vertical = 6.dp))
         }
         Spacer(modifier = Modifier.height(8.dp))
-        TextButton(onClick = { navController.navigate("login") }) {
-            Text(text = "Already have an account? Login",
-                )
+        TextButton(onClick = { navController.navigate(CommonAppScreens.LoginScreen.name ) }) {
+            Text(text = "Already have an account? Login")
         }
     }
 }
