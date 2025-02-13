@@ -10,8 +10,8 @@ interface FaceDao {
     @Query("SELECT * FROM face_data")
     suspend fun getAllFaces(): List<FaceEntity>
 
-    @Query("SELECT * FROM face_data WHERE name = :name LIMIT 1")
-    suspend fun getFaceByName(name: String): FaceEntity?
+    @Query("SELECT * FROM face_data WHERE regNumber= :regNumber LIMIT 1")
+    suspend fun getFaceByName(regNumber: String): FaceEntity?
 
     @Delete
     suspend fun deleteFace(face: FaceEntity)
