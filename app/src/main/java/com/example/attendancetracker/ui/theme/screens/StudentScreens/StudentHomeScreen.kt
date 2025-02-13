@@ -28,15 +28,6 @@ fun StudentHomeScreen(studentName: String = "Harshit") {
 
     Scaffold(
         topBar = { StudentTopBar(studentName) },
-//        floatingActionButton = {
-//            FloatingActionButton(
-//                onClick = { /* TODO: Implement attendance marking */ },
-//                containerColor = MaterialTheme.colorScheme.onSecondary
-//            ) {
-//               Icon(painter = painterResource(id = R.drawable.baseline_document_scanner_24), contentDescription = "photo scan", tint = Color.Black,
-//                   modifier = Modifier.size(24.dp))
-//            }
-//        }
     ) { padding ->
         Column(
             modifier = Modifier

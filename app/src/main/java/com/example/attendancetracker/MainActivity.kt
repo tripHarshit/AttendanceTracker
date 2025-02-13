@@ -15,7 +15,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.example.attendancetracker.ui.theme.AttendanceTrackerTheme
 import com.example.attendancetracker.ui.theme.navigation.AppNavigation
-import org.tensorflow.lite.Interpreter
+
 
 
 class MainActivity : ComponentActivity() {

@@ -7,9 +7,12 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.attendancetracker.data.DropDownOptions
 import com.example.attendancetracker.ui.theme.screens.FacultyScreens.FacultyHomeScreen
+import com.example.attendancetracker.ui.theme.screens.FacultyScreens.SelectionScreen
 import com.example.attendancetracker.ui.theme.screens.LoginScreen
 import com.example.attendancetracker.ui.theme.screens.SignUpScreen
+
 
 
 enum class CommonAppScreens(){
@@ -25,13 +28,14 @@ enum class StudentScreens( ){
 }
 enum class FacultyScreens(){
     HomeScreen,
+    SelectionScreen
 }
 
 @Composable
 fun AppNavigation() {
 
     val navController =  rememberNavController()
-    NavHost(navController = navController, startDestination =CommonAppScreens.BaseScreen.name ) {
+    NavHost(navController = navController, startDestination =FacultyScreens.SelectionScreen.name ) {
           composable(route =CommonAppScreens.BaseScreen.name){
               SplashScreen(navController = navController)
           }
@@ -49,7 +53,9 @@ fun AppNavigation() {
         }
         composable(route = CommonAppScreens.FaceDetectionScreen.name){
             FaceDetectionScreen(navController = navController)
-
+        }
+        composable(route = FacultyScreens.SelectionScreen.name){
+            SelectionScreen(navController,DropDownOptions.batch, DropDownOptions.branch, DropDownOptions.course)
         }
     }
 }
